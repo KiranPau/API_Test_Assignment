@@ -16,7 +16,7 @@ breakdown and an example.
 ```yaml
 <Name of the testcase>:
   Description: <Enter the description for the test case> (This section is optional)
-  Execute: <True or False> (Runs the test case id this parameter is true)
+  Execute: <True or False> (Runs the test case if this parameter is true)
   method: <method used in the testcase> (Currently GET method is supported)
   API: <api endpoint to test>
   validate(this keyword will validate the components in the below section to the content in the response):
