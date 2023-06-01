@@ -1,0 +1,59 @@
+---
+TestCase-1:
+  Description: "Testcase to check Name: Carbon credits"
+  Execute: True
+  method: GET
+  API: https://api.tmsandbox.co.nz/v1/Categories/6327/Details.json?catalogue=false 
+  validate:
+    Name: "Carbon credits"
+
+TestCase-2:
+  Description: "Testcase to check CanRelist = true"
+  Execute: True
+  method: GET
+  API: https://api.tmsandbox.co.nz/v1/Categories/6327/Details.json?catalogue=false 
+  validate:
+    CanRelist: true
+
+TestCase-3:
+  Description: "Testcase to check he Promotions element with Name = Gallery has a Description that contains the text Good position in category"
+  Execute: True
+  method: GET
+  API: https://api.tmsandbox.co.nz/v1/Categories/6327/Details.json?catalogue=false 
+  validate_promotion:
+    Name: "Gallery"
+    Description: "Good position in category"
+
+TestCase-4(Failure in validate):
+  Execute: false
+  method: GET
+  API: https://api.tmsandbox.co.nz/v1/Categories/6327/Details.json?catalogue=false 
+  validate:
+    Name: "this will fail!!"
+
+TestCase-5(Failure in Promotions):
+  Execute: True
+  method: GET
+  API: https://api.tmsandbox.co.nz/v1/Categories/6327/Details.json?catalogue=false 
+  validate_promotion:
+    Name: "this will fail"
+    Description: "for sure"
+
+TestCase-6(Failure with POST):
+  Execute: True
+  method: POST
+  API: https://api.tmsandbox.co.nz/v1/Categories/6327/Details.json?catalogue=false 
+  validate:
+    Name: "this will fail"
+  
+TestCase-7(All criterias):
+  Description: "All the three criterias"
+  Execute: True
+  method: GET
+  API: https://api.tmsandbox.co.nz/v1/Categories/6327/Details.json?catalogue=false 
+  validate:
+    Name: "Carbon credits"
+    CanRelist: true
+  validate_promotion:
+    Name: "Gallery"
+    Description: "Good position in category"   
